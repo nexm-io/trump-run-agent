@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trump Run</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+    <title>Trump Run</title>
+    <meta name="title" content="Trump Run | Game" />
+    <meta
+      name="description"
+      content="Trump Run is a fun and addictive game where you can earn real money by playing. Play now and win big!"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://trump.kadion.games" />
+    <meta property="og:title" content="Trump Run | Game" />
+    <meta
+      property="og:description"
+      content="Trump Run is a fun and addictive game where you can earn real money by playing. Play now and win big!"
+    />
+    <meta
+      property="og:image"
+      content="https://purple-advisory-wombat-172.mypinata.cloud/ipfs/bafkreifsdmxje67cp3kdqcq6ijzdgj5jixnbijcvib7llfug4t3a466i24?pinataGatewayToken=YGrSaWv7gcuq1OtGbYvONGKkoZ2K4X4JxSnjDZeOE-HAIFWMayFyhMjP8FSr4JaY"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://trump.kadion.games" />
+    <meta property="twitter:title" content="Trump Run | Game" />
+    <meta
+      property="twitter:description"
+      content="Trump Run is a fun and addictive game where you can earn real money by playing. Play now and win big!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://purple-advisory-wombat-172.mypinata.cloud/ipfs/bafkreifsdmxje67cp3kdqcq6ijzdgj5jixnbijcvib7llfug4t3a466i24?pinataGatewayToken=YGrSaWv7gcuq1OtGbYvONGKkoZ2K4X4JxSnjDZeOE-HAIFWMayFyhMjP8FSr4JaY"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <a href="" id="telegramShare"></a>
+    <script>
+     const telegram = window.Telegram.WebApp;
+
+     if (telegram) {
+        telegram.ready();
+        telegram.expand();
+      }
+
+      var shareLink = "";
+      var group = "";
+      function handleResetScreen() {
+            window.scrollTo({ top: 0 });
+        };
+
+        async function handleCopy() {
+          try {
+            const button = document.getElementById("copyButton");
+              const copyText = button.getAttribute("data-address");
+              var textArea = document.createElement("textarea");
+              textArea.value = copyText;
+              document.body.appendChild(textArea);
+              textArea.select();
+              textArea.setSelectionRange(0, textArea.value.length);
+              document.execCommand('copy', false, textArea.value);
+              document.body.removeChild(textArea);
+              console.log("Try copying to clipboard");
+              await navigator.clipboard.writeText(copyText);
+              console.log("Content copied to clipboard");
+            } catch (err) {
+              console.error("Failed to copy: ", err);
+            }
+          };
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+    <button id="resetButton" onclick="handleResetScreen()" hidden>Reset</button>
+    <button id="copyButton" onclick="handleCopy()" hidden>Copy</button>
+  </body>
+</html>
